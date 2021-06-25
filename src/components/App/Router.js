@@ -3,6 +3,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css'; 
 import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
+import AuthHome from '../../auth/AuthHome'; 
+import RecipeNavbar from "../recipe/RecipeNavbar"; 
+import NewRecipe from "../recipe/NewRecipe"; 
 import { render } from '@testing-library/react';
 
 const business = { 
@@ -35,14 +38,23 @@ class Router extends React.Component {
           <div className="App">
               <BrowserRouter>
                 <Switch>
-                    <Route exact path="/home"> 
+                    {this.props.user ? (
+                    <div>
+                    <Route exact path = "/new">
+                      <NewRecipe/>
+                    </Route>
+                    <Route exact path="/"> 
+                        <RecipeNavbar/>
                         <h1>Welcome to Adoumie Recipes!</h1>
                         <SearchBar searchYelp = {this.searchYelp}/>
                         <BusinessList bussList = {businesses}/>
                     </Route>
-                    <Route exact path ="/guestlogin">
-                        Home
+                    </div>
+                    ) : (
+                    <Route exact path ="/">
+                        <AuthHome/>
                     </Route>
+        )};
                 </Switch>
             </BrowserRouter>  
         </div>
