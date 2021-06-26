@@ -13,11 +13,17 @@ const RecipeNavbar = () => {
   return (
     <div className="recipe-navbar">
       <ul>
+      <li>
+          <Link to="/">Home</Link>
+        </li>
         <li>
           <Link to="/">All recipes</Link>
         </li>
         <li>
           <Link to="/new">Add new recipe</Link>
+        </li>
+        <li>
+          <Link to="/myrecipes">My Recipes</Link>
         </li>
         <li>
           <button onClick={signOut}>Log out</button>

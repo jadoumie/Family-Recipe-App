@@ -7,6 +7,9 @@ import AuthHome from '../../auth/AuthHome';
 import RecipeNavbar from "../recipe/RecipeNavbar"; 
 import NewRecipe from "../recipe/NewRecipe"; 
 import { render } from '@testing-library/react';
+import RecipeList from "../recipe/RecipeList";
+import Recipe from "../recipe/Recipe";
+import EditRecipe from "../recipe/EditRecipe"; 
 
 const business = { 
     imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
@@ -40,6 +43,9 @@ class Router extends React.Component {
                 <Switch>
                     {this.props.user ? (
                     <div>
+                    <Route exact path = "/myrecipes">
+                      <RecipeList/>
+                    </Route>
                     <Route exact path = "/new">
                       <NewRecipe/>
                     </Route>
@@ -49,11 +55,11 @@ class Router extends React.Component {
                         <SearchBar searchYelp = {this.searchYelp}/>
                         <BusinessList bussList = {businesses}/>
                     </Route>
+                    <Route path="/recipe/:id" component={Recipe} />
+                    <Route path ="/edit/:id" component={EditRecipe}/>
                     </div>
                     ) : (
-                    <Route exact path ="/">
                         <AuthHome/>
-                    </Route>
         )};
                 </Switch>
             </BrowserRouter>  
