@@ -3,6 +3,9 @@ import './App.css';
 import Router from "./Router"; 
 import { render } from '@testing-library/react';
 import { UserProvider, RouterWrapper} from '../../context/UserContext';
+import Recipe from '../recipe/Recipe';
+import RecipeNav from '../Navigation/Navigation';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

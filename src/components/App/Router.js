@@ -10,6 +10,8 @@ import { render } from '@testing-library/react';
 import RecipeList from "../recipe/RecipeList";
 import Recipe from "../recipe/Recipe";
 import EditRecipe from "../recipe/EditRecipe"; 
+import RecipeNav from "../Navigation/Navigation";
+import {Navbar, Nav, Container} from 'react-bootstrap';
 
 const business = { 
     imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
@@ -40,6 +42,7 @@ class Router extends React.Component {
         return (
           <div className="App">
               <BrowserRouter>
+              <RecipeNav/>
                 <Switch>
                     {this.props.user ? (
                     <div>
@@ -49,14 +52,14 @@ class Router extends React.Component {
                     <Route exact path = "/new">
                       <NewRecipe/>
                     </Route>
+                    <Route path="/recipe/:id" component={Recipe} />
+                    <Route path ="/edit/:id" component={EditRecipe}/>
                     <Route exact path="/"> 
                         <RecipeNavbar/>
                         <h1>Welcome to Adoumie Recipes!</h1>
                         <SearchBar searchYelp = {this.searchYelp}/>
                         <BusinessList bussList = {businesses}/>
                     </Route>
-                    <Route path="/recipe/:id" component={Recipe} />
-                    <Route path ="/edit/:id" component={EditRecipe}/>
                     </div>
                     ) : (
                         <AuthHome/>
