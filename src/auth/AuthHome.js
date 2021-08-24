@@ -1,8 +1,8 @@
 import React from "react"; 
-import { signInWithGoogle } from "../services/firestore";
+import { signInWithGoogle, auth } from "../services/firestore";
 import { useHistory } from "react-router";
 
-const AuthHome = () => {
+const AuthHome = (props) => {
 
 
     const history = useHistory();
@@ -12,9 +12,19 @@ const AuthHome = () => {
         history.push("/")
     }
 
+    const signOut = async () => {
+        await auth.signOut();
+        history.push("/");
+      };
+
     return (
         <div className="auth-home">
+            {props.loggedIn ? (
             <button onClick={signIn}>Sign in with Google</button>
+            ) : (
+            <button onClick={signOut}>Sign Out</button>
+            )
+        }
         </div>
     );
 };

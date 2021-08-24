@@ -90,3 +90,39 @@ textarea {
 .recipe-navbar li {
   list-style: none;
 }
+
+.auth-home {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px; /* margin is -0.5 * dimension */
+  margin-top: -25px; 
+}
+
+.AdoumieBanner {
+  position: relative;
+  height:10px;
+  top: 10%; 
+  left: 20%;
+}
+
+.recipe-list {
+  position: absolute;
+  height:70px;
+  top:8%;
+  left:0;
+  right:0;
+}
+
+
+.custContainer {
+  position: relative;
+  margin-top: 15%;
+}
+
+.newRecipeButton {
+  position: relative; 
+  margin-top: 80px; 
+}

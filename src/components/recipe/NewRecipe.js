@@ -32,7 +32,8 @@ const NewRecipe = () => {
 
   return (
     <div className="new-recipe">
-      <h1>New recipe</h1>
+      <h1 className='recipe-list'>New recipe</h1>
+      <div className = "custContainer">
       <form>
         <input
           type="text"
@@ -53,6 +54,7 @@ const NewRecipe = () => {
         />
         <button className = "newRecipeButton" onClick={saveRecipe}>Save recipe</button>
       </form>
+      </div>
     </div>
   );
 };

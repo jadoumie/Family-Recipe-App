@@ -35,8 +35,7 @@ const RecipeList = () => {
 
     return (
         <div className = 'recipe-list'>
-            <RecipeNavbar/>
-            <h1>Recipes</h1>
+            <h1 >Recipes</h1>
             <ul>{renderRecipes()}</ul>
         </div>
     );

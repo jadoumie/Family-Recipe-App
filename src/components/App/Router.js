@@ -42,7 +42,7 @@ class Router extends React.Component {
         return (
           <div className="App">
               <BrowserRouter>
-              <RecipeNav/>
+              <RecipeNav user = {this.props.user}/>
                 <Switch>
                     {this.props.user ? (
                     <div>
@@ -55,14 +55,18 @@ class Router extends React.Component {
                     <Route path="/recipe/:id" component={Recipe} />
                     <Route path ="/edit/:id" component={EditRecipe}/>
                     <Route exact path="/"> 
-                        <RecipeNavbar/>
-                        <h1>Welcome to Adoumie Recipes!</h1>
+                        <h1 className = "AdoumieBanner">Welcome to Adoumie Recipes!</h1>
                         <SearchBar searchYelp = {this.searchYelp}/>
                         <BusinessList bussList = {businesses}/>
                     </Route>
+                    <Route path = "/auth">
+                      <AuthHome loggedIn = {false}/>
+                    </Route>
                     </div>
                     ) : (
-                        <AuthHome/>
+                      <Route path = "/auth">
+                        <AuthHome loggedIn = {true}/>
+                      </Route>
         )};
                 </Switch>
             </BrowserRouter>  
